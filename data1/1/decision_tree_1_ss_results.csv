@@ -1,0 +1,3 @@
+mean_fit_time,std_fit_time,mean_score_time,std_score_time,param_criterion,params,split0_test_score,split1_test_score,split2_test_score,split3_test_score,split4_test_score,mean_test_score,std_test_score,rank_test_score,split0_train_score,split1_train_score,split2_train_score,split3_train_score,split4_train_score,mean_train_score,std_train_score
+0.1350334644317627,0.0064760915861171555,0.0007934093475341797,0.00039682339602007104,gini,{'criterion': 'gini'},0.7375,0.8,0.825,0.825,0.7125,0.78,0.04650268809434566,2,1.0,1.0,1.0,1.0,1.0,1.0,0.0
+0.20397510528564453,0.011168016091507698,0.0009870529174804688,2.4459468817336e-05,entropy,{'criterion': 'entropy'},0.7125,0.8375,0.8125,0.8,0.8125,0.7949999999999999,0.04301162633521313,1,1.0,1.0,1.0,1.0,1.0,1.0,0.0

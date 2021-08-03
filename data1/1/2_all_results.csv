@@ -1,0 +1,22 @@
+model,scaling,val_acc,best_params,total GS time,time,test_acc
+svm,Non scaled,0.8741772151898735,"{'C': 1, 'kernel': 'linear'}",9.965392351150513,0.10473108291625977,0.85
+random_forest,Non scaled,0.8841772151898735,{'n_estimators': 20},1.3773469924926758,0.09773826599121094,0.89
+logistic_regression,Non scaled,0.9143670886075951,{'C': 10},9.805857181549072,0.7948746681213379,0.87
+naive_bayes_gaussian,Non scaled,0.7102215189873418,{},0.32712578773498535,0.008976459503173828,0.71
+decision_tree,Non scaled,0.8035126582278481,{'criterion': 'entropy'},1.8879849910736084,0.2593100070953369,0.89
+KNeighborsClassifier,Non scaled,0.604493670886076,{'n_neighbors': 6},3.6711814403533936,0.03490805625915527,0.66
+MLPClassifier,Non scaled,0.6271518987341771,"{'activation': 'relu', 'alpha': 0.05, 'hidden_layer_sizes': (50, 50, 50), 'learning_rate': 'constant', 'solver': 'adam'}",141.71699333190918,1.1718685626983643,0.75
+svm,Standard scaled,0.9219303797468354,"{'C': 1, 'kernel': 'linear'}",9.670748949050903,0.11768531799316406,0.96
+random_forest,Standard scaled,0.8590189873417721,{'n_estimators': 15},1.4095470905303955,0.07578301429748535,0.88
+logistic_regression,Standard scaled,0.9042088607594936,{'C': 1},6.453509569168091,0.5046901702880859,0.89
+naive_bayes_gaussian,Standard scaled,0.7177215189873418,{},0.19251036643981934,0.005984783172607422,0.2
+decision_tree,Standard scaled,0.7857911392405063,{'criterion': 'entropy'},1.9836969375610352,0.3001973628997803,0.83
+KNeighborsClassifier,Standard scaled,0.8387658227848102,{'n_neighbors': 5},3.956570863723755,0.033908843994140625,0.84
+MLPClassifier,Standard scaled,0.9218987341772152,"{'activation': 'tanh', 'alpha': 0.05, 'hidden_layer_sizes': (100, 300, 100), 'learning_rate': 'adaptive', 'solver': 'adam'}",605.9574317932129,1.1715025901794434,0.88
+svm,MinMax scaled,0.9219303797468354,"{'C': 1, 'kernel': 'linear'}",9.601333618164062,0.11668896675109863,0.31
+random_forest,MinMax scaled,0.8739873417721519,{'n_estimators': 20},1.4886143207550049,0.13464021682739258,0.3
+logistic_regression,MinMax scaled,0.9042088607594936,{'C': 1},7.274691343307495,0.5196127891540527,0.84
+naive_bayes_gaussian,MinMax scaled,0.7177215189873418,{},0.20046162605285645,0.00897669792175293,0.27
+decision_tree,MinMax scaled,0.8035443037974683,{'criterion': 'entropy'},1.965743064880371,0.26130175590515137,0.41
+KNeighborsClassifier,MinMax scaled,0.8387658227848102,{'n_neighbors': 5},3.8636698722839355,0.033884286880493164,0.24
+MLPClassifier,MinMax scaled,0.9168354430379747,"{'activation': 'tanh', 'alpha': 0.05, 'hidden_layer_sizes': (100, 300, 100), 'learning_rate': 'adaptive', 'solver': 'adam'}",555.080162525177,1.1589040756225586,0.54
