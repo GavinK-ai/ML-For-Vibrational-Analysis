@@ -1,0 +1,2 @@
+mean_fit_time,std_fit_time,mean_score_time,std_score_time,params,split0_test_score,split1_test_score,split2_test_score,split3_test_score,split4_test_score,mean_test_score,std_test_score,rank_test_score,split0_train_score,split1_train_score,split2_train_score,split3_train_score,split4_train_score,mean_train_score,std_train_score
+0.006390857696533203,0.0013458213838536274,0.0017935752868652344,0.0007538212506931477,{},0.6625,0.8,0.7625,0.625,0.6875,0.7074999999999999,0.06451743950281971,1,0.828125,0.75625,0.759375,0.771875,0.765625,0.77625,0.02648702512552136

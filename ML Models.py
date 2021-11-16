@@ -25,7 +25,6 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.ensemble import RandomForestClassifier 
 from sklearn.neural_network import MLPClassifier
 from sklearn.naive_bayes import GaussianNB
-# from sklearn.naive_bayes import MultinomialNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 
@@ -40,19 +39,11 @@ from playsound import playsound
 from sklearn.metrics import accuracy_score,precision_score,recall_score,classification_report
 import joblib
 
-from config import path, trial_group, train_file, test_file
+from config import path, trial_group, train_file, test_file,dataset
 
 train = pd.read_csv( train_file )
 test = pd.read_csv( test_file )
 
-# path = 'a_a_1'
-# path = 'v_a_1'
-# path = 'a_b_1'
-# path = 'v_b_1'
-
-# path='1'
-# trial_group = '3'
-dataset = '1'
 
 # train = pd.read_csv('data/'+str(path)+'/train_1.csv')
 # test = pd.read_csv('data/'+str(path)+'/test_1.csv')
@@ -84,33 +75,37 @@ ss_flag = True
 mm_flag = True
 rs_flag = False
 ma_flag = False
-nz_flag = False
+nz_flag = True
 qt_flag = False
 pt_flag = False
 
 
 model_params = {
-    'svm': {
-        'model': svm.SVC(gamma='auto'),
-        'params' : {
-            'C': [1,10,20,30],
-            'kernel': ['rbf','linear']
+    # 'svm': {
+    #     'model': svm.SVC(gamma='auto'),
+    #     'params' : {
+    #         'C': [0.01,0.1,1,10,100],
+    #         'kernel': ['rbf','linear','poly','sigmoid'],
+    #         'degree': [2,3]
             
             
-        }  
-    },
+    #     }  
+    # },
     'random_forest': {
         'model': RandomForestClassifier(),
         'params' : {
-            'n_estimators': [1,5,10,15,20]
+            'n_estimators': [10,20,30,40,50,60,70,80,90,100],
+            'criterion': ['gini','entropy'],
+            'max_features': [10,20,30,40,50,60,70,80,90,100],
             
             
         }
     },
     'logistic_regression' : {
-        'model': LogisticRegression(solver='liblinear',multi_class='auto'),
+        'model': LogisticRegression(multi_class='auto'),
         'params': {
-            'C': [1,5,10]
+            'C': [1,10,100],
+            'solver': ['newton-cg','sag','saga','lbfgs']
             
             
         }
@@ -125,7 +120,8 @@ model_params = {
     'decision_tree': {
         'model': DecisionTreeClassifier(),
         'params': {
-            'criterion': ['gini','entropy']
+            'criterion': ['gini','entropy'],
+            'max_features': ['auto', 'sqrt','log2']
             
             
         }
@@ -134,14 +130,16 @@ model_params = {
     'KNeighborsClassifier': {
         'model': KNeighborsClassifier(),
         'params' : {
-            'n_neighbors':[4,5,6]
+            'n_neighbors':[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],
+            'weights': ['uniform','distance'],
+            
         
         }
             
         
     },
     'MLPClassifier': {
-        'model': MLPClassifier(max_iter=300),
+        'model': MLPClassifier(max_iter=150),
         'params': {
             'hidden_layer_sizes': [(50,50,50),(50,100,50),(100,300,100)],
             'activation': ['tanh', 'relu'],
@@ -155,7 +153,7 @@ model_params = {
     }
           
 }
-
+print("******************************************************")
 if no_sc_flag==True :
     
     # #Non Scaled X
@@ -197,10 +195,14 @@ if no_sc_flag==True :
         r=pd.DataFrame(clf.cv_results_)
         r.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_no_sc_results.csv',header = True, index = None)
         
+        df_CAreport=classification_report(y_test,test_predict,output_dict=True)
+        df_ca_report = pd.DataFrame(df_CAreport).transpose()
+        
+        df_ca_report.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_no_sc_ca_report.csv')
+        
         print(f"Gridsearch total time: {stop - start}s")
         print("Test Accuracy: "+str(ts_acc))
-    #    print(classification_report(y_test,test_predict))
-        
+    
         
         
         print("******************************************************")
@@ -248,9 +250,15 @@ if ss_flag==True :
         r=pd.DataFrame(clf.cv_results_)
         r.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_ss_results.csv',header = True, index = None)
         
+        
+        df_CAreport=classification_report(y_test,test_predict,output_dict=True)
+        df_ca_report = pd.DataFrame(df_CAreport).transpose()
+        
+        df_ca_report.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_ss_ca_report.csv')
+        
         print(f"Gridsearch total time: {stop - start}s")
         print("Test Accuracy: "+str(ts_acc))
-    #    print(classification_report(y_test,test_predict))
+
         
         
         
@@ -298,9 +306,15 @@ if mm_flag==True :
         r=pd.DataFrame(clf.cv_results_)
         r.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_mm_results.csv',header = True, index = None)
         
+        
+        df_CAreport=classification_report(y_test,test_predict,output_dict=True)
+        df_ca_report = pd.DataFrame(df_CAreport).transpose()
+        
+        df_ca_report.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_mm_ca_report.csv')
+        
         print(f"Gridsearch total time: {stop - start}s")
         print("Test Accuracy: "+str(ts_acc))
-    #    print(classification_report(y_test,test_predict))
+
         
         
         
@@ -347,9 +361,16 @@ if rs_flag==True :
         r=pd.DataFrame(clf.cv_results_)
         r.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_rs_results.csv',header = True, index = None)
         
+        
+        df_CAreport=classification_report(y_test,test_predict,output_dict=True)
+        df_ca_report = pd.DataFrame(df_CAreport).transpose()
+        
+        df_ca_report.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_rs_ca_report.csv')
+        
+        
         print(f"Gridsearch total time: {stop - start}s")
         print("Test Accuracy: "+str(ts_acc))
-    #    print(classification_report(y_test,test_predict))
+
         
         
         
@@ -397,9 +418,15 @@ if ma_flag==True :
         r=pd.DataFrame(clf.cv_results_)
         r.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_ma_results.csv',header = True, index = None)
         
+        
+        df_CAreport=classification_report(y_test,test_predict,output_dict=True)
+        df_ca_report = pd.DataFrame(df_CAreport).transpose()
+        
+        df_ca_report.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_mm_ca_report.csv')
+        
         print(f"Gridsearch total time: {stop - start}s")
         print("Test Accuracy: "+str(ts_acc))
-    #    print(classification_report(y_test,test_predict))
+  
         
         
         
@@ -447,9 +474,14 @@ if nz_flag==True :
         r=pd.DataFrame(clf.cv_results_)
         r.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_nz_results.csv',header = True, index = None)
         
+        df_CAreport=classification_report(y_test,test_predict,output_dict=True)
+        df_ca_report = pd.DataFrame(df_CAreport).transpose()
+        
+        df_ca_report.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_nz_ca_report.csv')
+        
         print(f"Gridsearch total time: {stop - start}s")
         print("Test Accuracy: "+str(ts_acc))
-    #    print(classification_report(y_test,test_predict))
+
         
         
         
@@ -497,9 +529,16 @@ if qt_flag==True :
         r=pd.DataFrame(clf.cv_results_)
         r.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_qt_results.csv',header = True, index = None)
         
+        
+        df_CAreport=classification_report(y_test,test_predict,output_dict=True)
+        df_ca_report = pd.DataFrame(df_CAreport).transpose()
+        
+        df_ca_report.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_qt_ca_report.csv')
+        
+        
         print(f"Gridsearch total time: {stop - start}s")
         print("Test Accuracy: "+str(ts_acc))
-    #    print(classification_report(y_test,test_predict))
+
         
         
         
@@ -547,10 +586,15 @@ if pt_flag==True :
         r=pd.DataFrame(clf.cv_results_)
         r.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_pt_results.csv',header = True, index = None)
         
+        
+        df_CAreport=classification_report(y_test,test_predict,output_dict=True)
+        df_ca_report = pd.DataFrame(df_CAreport).transpose()
+        
+        df_ca_report.to_csv('data'+str(dataset)+'/'+str(path)+'/'+str(model_name)+'_'+str(trial_group)+'_pt_ca_report.csv')
+        
         print(f"Gridsearch total time: {stop - start}s")
         print("Test Accuracy: "+str(ts_acc))
-    #    print(classification_report(y_test,test_predict))
-        
+
         
         
         print("******************************************************")
@@ -561,7 +605,7 @@ df_all = pd.concat([df_no_sc,
                     df_ss,
                     df_mm,
                     # df_ma,
-                    # df_nz,
+                    df_nz,
                     # df_pt,
                     # df_qt,
                     # df_rs

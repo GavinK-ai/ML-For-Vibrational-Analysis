@@ -1,0 +1,29 @@
+model,scaling,val_acc,best_params,total GS time,time,test_acc
+svm,Non scaled,0.8699999999999999,"{'C': 0.01, 'degree': 3, 'kernel': 'poly'}",47.67264246940613,0.10469412803649902,0.876
+random_forest,Non scaled,0.9125,"{'criterion': 'entropy', 'max_features': 70, 'n_estimators': 90}",571.7833113670349,1.7900185585021973,0.856
+logistic_regression,Non scaled,0.8949999999999999,"{'C': 1, 'solver': 'newton-cg'}",61.13275146484375,4.424615859985352,0.887
+naive_bayes_gaussian,Non scaled,0.73,{},0.21813321113586426,0.008977174758911133,0.701
+decision_tree,Non scaled,0.7350000000000001,"{'criterion': 'gini', 'max_features': 'sqrt'}",0.47234201431274414,0.007943153381347656,0.66
+KNeighborsClassifier,Non scaled,0.79,"{'n_neighbors': 6, 'weights': 'distance'}",84.77123236656189,0.0388948917388916,0.763
+MLPClassifier,Non scaled,0.8875,"{'activation': 'relu', 'alpha': 0.05, 'hidden_layer_sizes': (50, 100, 50), 'learning_rate': 'adaptive', 'solver': 'adam'}",448.73952984809875,2.5422327518463135,0.814
+svm,Standard scaled,0.915,"{'C': 0.01, 'degree': 2, 'kernel': 'linear'}",68.22965812683105,0.1573927402496338,0.897
+random_forest,Standard scaled,0.915,"{'criterion': 'entropy', 'max_features': 30, 'n_estimators': 90}",674.33393907547,1.1229658126831055,0.722
+logistic_regression,Standard scaled,0.905,"{'C': 10, 'solver': 'newton-cg'}",39.32514238357544,0.38292980194091797,0.907
+naive_bayes_gaussian,Standard scaled,0.7250000000000001,{},0.32785797119140625,0.0059854984283447266,0.237
+decision_tree,Standard scaled,0.76,"{'criterion': 'entropy', 'max_features': 'auto'}",0.5520703792572021,0.016201496124267578,0.639
+KNeighborsClassifier,Standard scaled,0.8475000000000001,"{'n_neighbors': 5, 'weights': 'distance'}",103.22473645210266,0.04667496681213379,0.753
+MLPClassifier,Standard scaled,0.905,"{'activation': 'relu', 'alpha': 0.0001, 'hidden_layer_sizes': (100, 300, 100), 'learning_rate': 'constant', 'solver': 'adam'}",476.14938950538635,1.2800674438476562,0.866
+svm,MinMax scaled,0.915,"{'C': 0.01, 'degree': 2, 'kernel': 'linear'}",67.55540537834167,0.2192068099975586,0.237
+random_forest,MinMax scaled,0.9175000000000001,"{'criterion': 'gini', 'max_features': 20, 'n_estimators': 70}",713.0404307842255,0.35378289222717285,0.454
+logistic_regression,MinMax scaled,0.9075,"{'C': 100, 'solver': 'saga'}",47.79877042770386,1.4471125602722168,0.835
+naive_bayes_gaussian,MinMax scaled,0.7250000000000001,{},0.2674593925476074,0.004931926727294922,0.237
+decision_tree,MinMax scaled,0.7225,"{'criterion': 'gini', 'max_features': 'auto'}",0.5290913581848145,0.01296544075012207,0.216
+KNeighborsClassifier,MinMax scaled,0.8475000000000001,"{'n_neighbors': 5, 'weights': 'distance'}",103.91811919212341,0.041177988052368164,0.237
+MLPClassifier,MinMax scaled,0.9075,"{'activation': 'tanh', 'alpha': 0.05, 'hidden_layer_sizes': (50, 50, 50), 'learning_rate': 'adaptive', 'solver': 'adam'}",500.78835129737854,1.475036382675171,0.711
+svm,Normalized ,0.8450000000000001,"{'C': 100, 'degree': 2, 'kernel': 'linear'}",65.165207862854,0.10970664024353027,0.825
+random_forest,Normalized ,0.9075000000000001,"{'criterion': 'gini', 'max_features': 30, 'n_estimators': 50}",524.0071206092834,0.2393968105316162,0.845
+logistic_regression,Normalized ,0.805,"{'C': 100, 'solver': 'newton-cg'}",16.404892921447754,0.1196749210357666,0.804
+naive_bayes_gaussian,Normalized ,0.7074999999999999,{},0.1965007781982422,0.004987955093383789,0.66
+decision_tree,Normalized ,0.7275,"{'criterion': 'entropy', 'max_features': 'sqrt'}",0.39995503425598145,0.012965917587280273,0.649
+KNeighborsClassifier,Normalized ,0.8025,"{'n_neighbors': 5, 'weights': 'distance'}",67.92783856391907,0.03291201591491699,0.763
+MLPClassifier,Normalized ,0.9,"{'activation': 'tanh', 'alpha': 0.0001, 'hidden_layer_sizes': (50, 100, 50), 'learning_rate': 'constant', 'solver': 'adam'}",301.43352603912354,1.5698060989379883,0.856

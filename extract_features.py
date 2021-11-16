@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 import tsfresh
 
+
 #Read test set
 df = pd.read_csv(input_file, header = 1 )
 
@@ -60,4 +61,5 @@ assert df_features.isnull().sum().sum() == 0
 df_features['y'] = y
 
 # Save feature file
-df_features.to_csv(features_file, header = True , index = None)
+# df_features.to_csv(features_file, header = True , index = None)
+

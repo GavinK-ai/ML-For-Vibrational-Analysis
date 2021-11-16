@@ -1,0 +1,25 @@
+model,scaling,val_acc,best_params,total GS time,time,test_acc
+random_forest,Non scaled,0.9327309236947791,"{'criterion': 'gini', 'max_features': 10, 'n_estimators': 100}",507.2728054523468,0.24733877182006836,0.962
+logistic_regression,Non scaled,0.7620195065978198,"{'C': 10, 'solver': 'newton-cg'}",55.82190132141113,3.3765673637390137,0.752
+naive_bayes_gaussian,Non scaled,0.25708548479632815,{},0.1745924949645996,0.003989458084106445,0.21
+decision_tree,Non scaled,0.7718014916810099,"{'criterion': 'entropy', 'max_features': 'sqrt'}",0.35308027267456055,0.010941267013549805,0.781
+KNeighborsClassifier,Non scaled,0.28376362593230064,"{'n_neighbors': 15, 'weights': 'distance'}",20.722776412963867,0.024931907653808594,0.229
+MLPClassifier,Non scaled,0.29308663224325876,"{'activation': 'tanh', 'alpha': 0.0001, 'hidden_layer_sizes': (100, 300, 100), 'learning_rate': 'constant', 'solver': 'adam'}",178.9036192893982,1.08408522605896,0.248
+random_forest,Standard scaled,0.9327309236947791,"{'criterion': 'gini', 'max_features': 10, 'n_estimators': 80}",475.01025342941284,0.20646166801452637,0.952
+logistic_regression,Standard scaled,0.9399024670109007,"{'C': 1, 'solver': 'sag'}",19.911667823791504,0.5834791660308838,0.952
+naive_bayes_gaussian,Standard scaled,0.7764773379231211,{},0.15959763526916504,0.003992557525634766,0.2
+decision_tree,Standard scaled,0.7714859437751004,"{'criterion': 'entropy', 'max_features': 'auto'}",0.3088405132293701,0.009972810745239258,0.81
+KNeighborsClassifier,Standard scaled,0.7933734939759038,"{'n_neighbors': 6, 'weights': 'distance'}",51.38935661315918,0.022938013076782227,0.79
+MLPClassifier,Standard scaled,0.9519506597819852,"{'activation': 'tanh', 'alpha': 0.05, 'hidden_layer_sizes': (50, 50, 50), 'learning_rate': 'adaptive', 'solver': 'adam'}",288.6732015609741,1.5481300354003906,0.943
+random_forest,MinMax scaled,0.9303212851405622,"{'criterion': 'entropy', 'max_features': 30, 'n_estimators': 80}",609.4377148151398,1.1390185356140137,0.276
+logistic_regression,MinMax scaled,0.9423121055651176,"{'C': 100, 'solver': 'saga'}",36.85311245918274,1.2433910369873047,0.286
+naive_bayes_gaussian,MinMax scaled,0.7764773379231211,{},0.2664813995361328,0.011002540588378906,0.181
+decision_tree,MinMax scaled,0.7740103270223753,"{'criterion': 'entropy', 'max_features': 'auto'}",0.5011355876922607,0.016406536102294922,0.4
+KNeighborsClassifier,MinMax scaled,0.7933734939759038,"{'n_neighbors': 6, 'weights': 'distance'}",83.77992177009583,0.02506422996520996,0.362
+MLPClassifier,MinMax scaled,0.9518932874354562,"{'activation': 'relu', 'alpha': 0.0001, 'hidden_layer_sizes': (100, 300, 100), 'learning_rate': 'constant', 'solver': 'adam'}",414.5750455856323,1.1007192134857178,0.371
+random_forest,Normalized ,0.6442914515203672,"{'criterion': 'entropy', 'max_features': 70, 'n_estimators': 90}",657.0646452903748,2.098273515701294,0.676
+logistic_regression,Normalized ,0.25226620768789443,"{'C': 100, 'solver': 'newton-cg'}",15.907593488693237,0.17169594764709473,0.286
+naive_bayes_gaussian,Normalized ,0.2428858290304073,{},0.21774721145629883,0.007981061935424805,0.19
+decision_tree,Normalized ,0.3967871485943775,"{'criterion': 'entropy', 'max_features': 'auto'}",0.41109681129455566,0.013636112213134766,0.362
+KNeighborsClassifier,Normalized ,0.4110728628800918,"{'n_neighbors': 5, 'weights': 'uniform'}",38.35566067695618,0.031789541244506836,0.41
+MLPClassifier,Normalized ,0.33660355708548484,"{'activation': 'relu', 'alpha': 0.0001, 'hidden_layer_sizes': (100, 300, 100), 'learning_rate': 'constant', 'solver': 'adam'}",417.5935113430023,3.4348154067993164,0.257
